@@ -6,16 +6,19 @@ use App\Entity\Contacts;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request; 
-use Symfony\Component\HttpFoundation\Response; 
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 
 class ContactsController extends AbstractController
 {
     /**
-     * @Route("/contacts", name="contacts")
+     * @Route("/contact", name="contacts")
     */
-    public function createContacts(Request $request)
-    {
+    public function createContacts(Request $request) {
     
         $contacts = new Contacts();
         $contacts->setNom('Lobjois');
@@ -29,5 +32,22 @@ class ContactsController extends AbstractController
         $em->flush();
 
         return new Response('article crée avec id' .$contacts->getId());
+    }
+
+    /**
+     * @Route("/contacts", name="contacts")
+    */
+    public function getAllUsers() {
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $repo = $this->getDoctrine()->getRepository(Contacts::class);
+        $contacts = $repo->findAll();
+
+        $jsonContent = $serializer->serialize($contacts, 'json');
+
+        return new Response($jsonContent);
     }
 }
