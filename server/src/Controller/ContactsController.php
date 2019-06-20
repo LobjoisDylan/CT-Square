@@ -16,16 +16,16 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 class ContactsController extends AbstractController
 {
     /**
-     * @Route("/contact", name="contacts")
+     * @Route("/contact", name="contact")
     */
     public function createContacts(Request $request) {
     
         $contacts = new Contacts();
-        $contacts->setNom('Lobjois');
-        $contacts->setPrenom('Dylan');
-        $contacts->setTelephone('0620816861');
-        $contacts->setEmail('dylan1.lobjois@epitech.eu');
-        $contacts->SetNote('Petit test');
+        $contacts->setNom('Marta');
+        $contacts->setPrenom('Camy');
+        $contacts->setTelephone('0742172530');
+        $contacts->setEmail('camy.marta@epitech.eu');
+        $contacts->SetNote('Aucune note');
         
         $em = $this->getDoctrine()->getManager();
         $em->persist($contacts);
