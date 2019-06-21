@@ -50,4 +50,21 @@ class ContactsController extends AbstractController
 
         return new Response($jsonContent);
     }
+
+    /**
+     * @Route("/affichage/{id}", name="affichage")
+    */
+    public function getOneUsers($id) {
+        $encoders = [new XmlEncoder(), new JsonEncoder()];
+        $normalizers = [new ObjectNormalizer()];
+
+        $serializer = new Serializer($normalizers, $encoders);
+
+        $repo = $this->getDoctrine()->getRepository(Contacts::class);
+        $contacts = $repo->find($id);
+
+        $jsonContent = $serializer->serialize($contacts, 'json');
+
+        return new Response($jsonContent);
+    }
 }

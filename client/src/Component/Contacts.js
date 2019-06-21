@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 //import './Style/Contacts.css'
 
 class Contacts extends Component {
@@ -26,7 +27,7 @@ class Contacts extends Component {
                     return(
                         <div key={index}>
                             {contact.id + " " + contact.nom + " " + contact.prenom + " " + contact.telephone + " " + contact.email + " " + contact.note}
-                            <button>Voir le contact</button>
+                            <Link to="/affichage">Voir le contact</Link>
                         </div>
                     )
                 })}
