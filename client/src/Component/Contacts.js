@@ -15,16 +15,18 @@ class Contacts extends Component {
         .then(res => res.json())
         .then((result) => {
             this.setState({ contacts: result });
+            console.log(this.state.contacts);
         })
     }
 
     render() {
         return (
             <div className="contacts">
-                {this.state.contacts.map(function(contact) {
+                {this.state.contacts.map(function(contact, index) {
                     return(
-                        <div className="afficher">
+                        <div key={index}>
                             {contact.id + " " + contact.nom + " " + contact.prenom + " " + contact.telephone + " " + contact.email + " " + contact.note}
+                            <button>Voir le contact</button>
                         </div>
                     )
                 })}
