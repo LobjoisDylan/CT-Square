@@ -27,7 +27,7 @@ class Contacts extends Component {
                     return(
                         <div key={index}>
                             {contact.id + " " + contact.nom + " " + contact.prenom + " " + contact.telephone + " " + contact.email + " " + contact.note}
-                            <Link to="/affichage">Voir le contact</Link>
+                            <Link to={`/affichage/${contact.id}`}>Voir le contact</Link>
                         </div>
                     )
                 })}

@@ -10,7 +10,7 @@ const Root = () => (
     <BrowserRouter>
         <Switch>
            <Route exact path='/' component={ App } />
-           <Route exact path='/affichage' component={ Affichage } />
+           <Route exact path='/affichage/:id' component={ Affichage } />
         </Switch>
     </BrowserRouter>
 )
