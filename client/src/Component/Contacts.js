@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-//import './Style/Contacts.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Style/Contacts.css'
 
 class Contacts extends Component {
 
@@ -16,21 +17,21 @@ class Contacts extends Component {
         .then(res => res.json())
         .then((result) => {
             this.setState({ contacts: result });
-            console.log(this.state.contacts);
         })
     }
 
     render() {
         return (
-            <div className="contacts">
-                {this.state.contacts.map(function(contact, index) {
+            <div className="container">
+                <div className="row mt-5">
+                    {this.state.contacts.map(function(contact, index) {
                     return(
-                        <div key={index}>
-                            {contact.id + " " + contact.nom + " " + contact.prenom + " " + contact.telephone + " " + contact.email + " " + contact.note}
-                            <Link to={`/affichage/${contact.id}`}>Voir le contact</Link>
+                        <div key={index} className="col-lg-4 ecart">  
+                            {contact.nom + " " + contact.prenom}
+                            <Link to={`/profil/${contact.id}`}>Voir le contact</Link>
                         </div>
-                    )
-                })}
+                    )})}
+                </div>
             </div>
         )
     }

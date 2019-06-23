@@ -11,6 +11,7 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Doctrine\Common\Persistence\ObjectManager;
 
 
 class ContactsController extends AbstractController
@@ -52,19 +53,37 @@ class ContactsController extends AbstractController
     }
 
     /**
-     * @Route("/affichage/{id}", name="affichage")
+     * @Route("/profil/{id}", name="profil")
     */
     public function getOneUsers($id) {
         $encoders = [new XmlEncoder(), new JsonEncoder()];
         $normalizers = [new ObjectNormalizer()];
-
+        
         $serializer = new Serializer($normalizers, $encoders);
-
+        
         $repo = $this->getDoctrine()->getRepository(Contacts::class);
         $contacts = $repo->find($id);
-
+        
         $jsonContent = $serializer->serialize($contacts, 'json');
-
+        
         return new Response($jsonContent);
+    }
+    
+    /**
+     * @Route("/add", name="add", defaults={"_format": "json"})
+    */
+    public function add(Request $request, ObjectManager $manager)
+    {
+        $contacts = new Contacts();
+        $contacts->setNom($request->request->get("nom"));
+        $contacts->setPrenom($request->request->get("prenom"));
+        $contacts->setTelephone($request->request->get("telephone"));
+        $contacts->setEmail($request->request->get("email"));
+        $contacts->setNote($request->request->get("note"));
+        
+        $manager->persist($contacts);
+        $manager->flush();
+    
+        return new Response($contacts->getId());
     }
 }

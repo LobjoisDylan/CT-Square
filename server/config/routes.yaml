@@ -1,5 +1,0 @@
-articles:
-  path: /contacts
-  controller: App\Controller\ContactsController::getAllUser
-  defaults:
-    _format: json

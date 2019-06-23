@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import Affichage from './Affichage';
+import Profil from './Profil';
+import AddUsers from './AddUsers';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -10,7 +11,8 @@ const Root = () => (
     <BrowserRouter>
         <Switch>
            <Route exact path='/' component={ App } />
-           <Route exact path='/affichage/:id' component={ Affichage } />
+           <Route exact path='/profil/:id' component={ Profil } />
+           <Route exact path='/addUsers' component={ AddUsers } />
         </Switch>
     </BrowserRouter>
 )
