@@ -86,4 +86,23 @@ class ContactsController extends AbstractController
     
         return new Response($contacts->getId());
     }
+
+    /**
+     * @Route("/update/{id}", name="update", defaults={"_format": "json"})
+    */
+    public function update($id, Request $request, ObjectManager $manager)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $contacts = $em->getRepository(Contacts::class)->find($id);
+        $contacts->setNom($request->request->get("nom"));
+        $contacts->setPrenom($request->request->get("prenom"));
+        $contacts->setTelephone($request->request->get("telephone"));
+        $contacts->setEmail($request->request->get("email"));
+        $contacts->setNote($request->request->get("note"));
+
+        $manager->persist($contacts);
+        $manager->flush();
+
+        return new Response($contacts->getId());
+    }
 }
