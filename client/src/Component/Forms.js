@@ -23,6 +23,10 @@ class Forms extends Component {
         }).then(res => res.json())
     }
 
+    handleChange(event) {
+        this.setState({value: event.target.value});
+    }
+
     render() {
         return (
             <div className="container">

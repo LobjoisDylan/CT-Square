@@ -1,3 +1,8 @@
 .ecart {
     margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.picture-reducer {
+    height:150px;
 }

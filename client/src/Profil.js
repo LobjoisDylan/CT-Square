@@ -7,8 +7,9 @@ class Profil extends Component {
         this.state = {
             profil: [],
             loading: false,
-            //forms: false
+            forms: false
         }
+        //this.handleClick = this.handleClick.bind(this);
     }
     
     componentWillMount = () => {
@@ -39,7 +40,7 @@ class Profil extends Component {
         return (
             <div className="container">
                 {this.state.loading === false ? "Chargement du contenu..." : this.state.profil.id + " " + this.state.profil.nom + " " + this.state.profil.prenom + " " + this.state.profil.telephone + " " + this.state.profil.email + " " + this.state.profil.note}
-                {/*<input type="submit" onClick={(e) => this.handleClick(e)} /> */}
+                {/*<input type="submit" onClick={this.handleClick} />*/}
                 <h1>Changer l'utilisateur</h1>
                 <form onSubmit={this.handleSubmit} >
                     <input type="text" className="form-control" placeholder={this.state.profil.nom} name="nom" />

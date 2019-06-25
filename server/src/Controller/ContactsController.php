@@ -17,25 +17,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 class ContactsController extends AbstractController
 {
     /**
-     * @Route("/contact", name="contact")
-    */
-    public function createContacts(Request $request) {
-    
-        $contacts = new Contacts();
-        $contacts->setNom('Joaquim');
-        $contacts->setPrenom('Gameiro');
-        $contacts->setTelephone('0787770012');
-        $contacts->setEmail('joaquim.gameiro@epitech.eu');
-        $contacts->SetNote('Le meilleur');
-        
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($contacts);
-        $em->flush();
-
-        return new Response('article crée avec id' .$contacts->getId());
-    }
-
-    /**
      * @Route("/contacts", name="contacts")
     */
     public function getAllUsers() {
