@@ -23,13 +23,9 @@ class Forms extends Component {
         }).then(res => res.json())
     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-
     render() {
         return (
-            <div className="container">
+            <div className="container middle">
                 <form onSubmit={this.handleSubmit} >
                     <input type="text" className="form-control" placeholder="nom" name="nom" />
                     <input type="text" className="form-control" placeholder="prenom" name="prenom" />
@@ -38,7 +34,7 @@ class Forms extends Component {
                     <input type="text" className="form-control" placeholder="note"name="note" />
                     <div className="row">
                         <div className="col col-md-4 offset-4">
-                            <input type="submit" className="mt-3 btn btn-danger form-control" value="Valider l'ajout"/>
+                            <input type="submit" className="mt-3 btn btn-dark form-control" value="Ajouter l'utilisateur"/>
                         </div>
                     </div>
                 </form>

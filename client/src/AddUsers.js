@@ -7,7 +7,7 @@ class AddUsers extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Ajouter un utilisateur</h1>
+                <h1 className="text-center">Ajouter un utilisateur</h1>
                 <Forms />
             </div>
         )

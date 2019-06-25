@@ -1,0 +1,22 @@
+.reduce-picture {
+    height:150px;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    padding:0;
+}
+
+input {
+    margin-top:20px;
+}
+
+.donnees {
+    border:1px solid grey;
+    width:300px;
+    text-align:center;
+    margin: 0 auto;
+}

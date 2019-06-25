@@ -29,7 +29,7 @@ class Contacts extends Component {
                     {this.state.contacts.map(function(contact, index) {
                     return(
                         <div key={index} className="col-lg-4 ecart text-center">
-                            <Link to={`/profil/${contact.id}`}><img src={Utilisateur} class="picture-reducer" title="Afficher le profil" alt="logo"/></Link><br />
+                            <Link to={`/profil/${contact.id}`}><img src={Utilisateur} className="picture-reducer" title="Afficher le profil" alt="logo"/></Link><br />
                             {contact.nom + " " + contact.prenom}<br />
                         </div>
                     )})}
