@@ -36,7 +36,7 @@ class Profil extends Component {
         return (
             <div className="container">
                 <div className="donnees">
-                    <img src={Utilisateur} alt="cool" class="reduce-picture" />
+                    <img src={Utilisateur} alt="cool" className="reduce-picture" />
                     <ul>
                         <li><b>Nom</b> : {this.state.loading === false ? "Chargement du contenu..." : this.state.profil.nom}</li>
                         <li><b>Penom : </b>{this.state.loading === false ? "Chargement du contenu..." : this.state.profil.prenom}</li>

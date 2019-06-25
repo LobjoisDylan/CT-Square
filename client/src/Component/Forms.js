@@ -25,7 +25,7 @@ class Forms extends Component {
 
     render() {
         return (
-            <div className="container middle">
+            <div className="container">
                 <form onSubmit={this.handleSubmit} >
                     <input type="text" className="form-control" placeholder="nom" name="nom" />
                     <input type="text" className="form-control" placeholder="prenom" name="prenom" />
@@ -33,7 +33,7 @@ class Forms extends Component {
                     <input type="text" className="form-control" placeholder="email" name="email" />
                     <input type="text" className="form-control" placeholder="note"name="note" />
                     <div className="row">
-                        <div className="col col-md-4 offset-4">
+                        <div className="col col-lg-4 offset-4">
                             <input type="submit" className="mt-3 btn btn-dark form-control" value="Ajouter l'utilisateur"/>
                         </div>
                     </div>

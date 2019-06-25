@@ -31,6 +31,7 @@ class Contacts extends Component {
                         <div key={index} className="col-lg-4 ecart text-center">
                             <Link to={`/profil/${contact.id}`}><img src={Utilisateur} className="picture-reducer" title="Afficher le profil" alt="logo"/></Link><br />
                             {contact.nom + " " + contact.prenom}<br />
+                            {console.log(index + 1)}
                         </div>
                     )})}
                 </div>
